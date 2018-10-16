@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: 偷得浮生半日闲
 subtitle:
-description:
+description: 
 keywords:
-author: John Doe
+author: Luowei
 language:
 timezone:
 
@@ -73,13 +73,16 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
+# theme: landscape
 theme: next
+
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
-
+  type: git #部署类型，使用github
+  repository: https://github.com/luv135/luv135.github.io.git
+  branch: master #部署分支， 一般使用master主分支
 
 search:
   path: search.xml
