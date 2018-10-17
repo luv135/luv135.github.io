@@ -1,8 +1,12 @@
 
 ---
 title: git 命令
+tags: 
+- git
 ---
+
 以下示例远程仓库的默认名称是`origin`
+
 # 仓库
 - 将目录初始化为git 仓库: `git init`
 
