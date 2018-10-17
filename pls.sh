@@ -1,4 +1,6 @@
 #! /usr/bin/env bash
 
-
-hexo deploy && git push origin hexo
+git add .
+git commit -m "update"
+hexo deploy
+git push origin hexo
