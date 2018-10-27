@@ -22,15 +22,11 @@ tags:
 
 - 推送本地`dev`分支到远程`master`: `git push origin dev`
 
-- 拉取远程分支: ` git pull <远程主机名> <远程分支名>:<本地分支名>`
-
-- 本地分支和远程分支关联: `git checkout -b 本地分支 origin/远程分支`(本地和远程分支的名称最好一致)
-
-- 建立本地分支和远程分支的关联，使用`git branch --set-upstream 本地分支 origin/远程分支`
+- 拉取远程分支: ` git pull <远程主机名> <远程分支名>:<本地分支名>``
 
 - 删除远程关联仓库`git remote rm origin`
 
-- 关联本地仓库: `git remote add origin git@luowei.chinacloudapp.cn:/home/git/repo/sampe.git/ `
+- 关远程地仓库: `git remote add origin git@luowei.chinacloudapp.cn:/home/git/repo/sampe.git/ `
 
 # 分支
 - 查看分支: `git branch`
@@ -40,6 +36,10 @@ tags:
 - 查看所有分支: `git branch -a`
 
 - 创建分支: `git branch <name>`
+- 本地分支和远程分支关联: `git checkout -b 本地分支 origin/远程分支`(本地和远程分支的名称最好一致)
+
+- 建立本地分支和远程分支的关联，使用`git branch --set-upstream 本地分支 origin/远程分支`
+
 
 - 切换分支: `git checkout <name>`
 
