@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="kotlin,">
 
 
 
@@ -81,13 +81,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="偷得浮生半日闲">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="扩展函数/泛型使用···javafun  T.addToLayout(): T { }`">
+<meta name="keywords" content="kotlin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kotlin tips">
+<meta property="og:url" content="http://yoursite.com/2018/11/04/kotlin tips/index.html">
 <meta property="og:site_name" content="偷得浮生半日闲">
+<meta property="og:description" content="扩展函数/泛型使用···javafun  T.addToLayout(): T { }`">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-04T15:23:52.410Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="偷得浮生半日闲">
+<meta name="twitter:title" content="Kotlin tips">
+<meta name="twitter:description" content="扩展函数/泛型使用···javafun  T.addToLayout(): T { }`">
 
 
 
@@ -117,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2018/11/04/kotlin tips/">
 
 
 
 
 
-  <title>偷得浮生半日闲</title>
+  <title>Kotlin tips | 偷得浮生半日闲</title>
   
 
 
@@ -142,8 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -258,9 +262,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -290,9 +294,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/04/kotlin tips/" itemprop="url">Kotlin tips</a></h1>
+          <h1 class="post-title" itemprop="name headline">Kotlin tips</h1>
         
 
         <div class="post-meta">
@@ -342,13 +344,9 @@
       
 
       
-        
-          
-            <h1 id="扩展函数-泛型使用"><a href="#扩展函数-泛型使用" class="headerlink" title="扩展函数/泛型使用"></a>扩展函数/泛型使用</h1><p>···java<br>fun <t :="" view=""> T.addToLayout(): T {</t></p>
+        <h1 id="扩展函数-泛型使用"><a href="#扩展函数-泛型使用" class="headerlink" title="扩展函数/泛型使用"></a>扩展函数/泛型使用</h1><p>···java<br>fun <t :="" view=""> T.addToLayout(): T {</t></p>
 <p>}<br><code>`</code></p>
 
-          
-        
       
     </div>
     
@@ -363,349 +361,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/04/git usage/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Luowei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="偷得浮生半日闲">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/04/git usage/" itemprop="url">git 命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-04T23:16:33+08:00">
-                2018-11-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/kotlin/" rel="tag"># kotlin</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>以下示例远程仓库的默认名称是<code>origin</code></p>
-<h1 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a>仓库</h1><ul>
-<li><p>将目录初始化为git 仓库: <code>git init</code></p>
-</li>
-<li><p>删除远程分支: <code>git push --delete origin 分支名</code></p>
-</li>
-<li><p>查看远程库信息，使用<code>git remote -v</code></p>
-</li>
-<li><p>推送分支: <code>git push &lt;远程主机名&gt; &lt;本地分支&gt;:&lt;远程分支名&gt;</code></p>
-</li>
-<li><p>推送本地分支: <code>git push origin 本地分支:远程分支</code></p>
-</li>
-<li><p>将<code>master</code>分支推送到远程<code>master</code>分支:<code>git push origin master</code>(对于已经关联上的分支可省略掉远程分支名)</p>
-</li>
-<li><p>推送本地<code>dev</code>分支到远程<code>master</code>: <code>git push origin dev</code></p>
-</li>
-<li><p>拉取远程分支: <code>git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;`</code></p>
-</li>
-<li><p>删除远程关联仓库<code>git remote rm origin</code></p>
-</li>
-<li><p>关远程地仓库: <code>git remote add origin git@luowei.chinacloudapp.cn:/home/git/repo/sampe.git/</code></p>
-</li>
-</ul>
-<h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><ul>
-<li><p>查看分支: <code>git branch</code></p>
-</li>
-<li><p>查看远程分支: <code>git branch -r</code></p>
-</li>
-<li><p>查看所有分支: <code>git branch -a</code></p>
-</li>
-<li><p>创建分支: <code>git branch &lt;name&gt;</code></p>
-</li>
-<li><p>本地分支和远程分支关联: <code>git checkout -b 本地分支 origin/远程分支</code>(本地和远程分支的名称最好一致)</p>
-</li>
-<li><p>建立本地分支和远程分支的关联，使用<code>git branch --set-upstream 本地分支 origin/远程分支</code></p>
-</li>
-</ul>
-<ul>
-<li><p>切换分支: <code>git checkout &lt;name&gt;</code></p>
-</li>
-<li><p>创建+切换分支: <code>git checkout -b &lt;name&gt;</code></p>
-</li>
-<li><p>合并某分支到当前分支: <code>git merge &lt;name&gt;</code></p>
-</li>
-<li><p>删除分支: <code>git branch -d &lt;name&gt;</code></p>
-</li>
-<li><p>重置分支: `git reset’</p>
-</li>
-<li><p>强行删除: <code>git branch -D &lt;name&gt;</code></p>
-</li>
-<li><p>取回所有分支: <code>git fetch &lt;远程主机名&gt;</code></p>
-</li>
-<li><p>取回特定分支: <code>git fetch &lt;远程主机名&gt; &lt;分支名&gt;</code></p>
-</li>
-<li><p>忽略的文件: <code>.gitignore</code></p>
-</li>
-<li><p>分支合并图: <code>git log --graph</code></p>
-</li>
-<li><p>合并分支并生产一个commit: <code>git merge --no-ff -m &quot;merge with no-ff&quot; dev</code></p>
-</li>
-<li><p>重命名分支: <code>git branch -m &lt;oldname&gt; &lt;newname&gt;</code> 当前分支则:<code>git branch -m &lt;newname&gt;</code></p>
-</li>
-</ul>
-<h1 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h1><ul>
-<li><p>刪除文件: <code>git rm test.txt</code></p>
-</li>
-<li><p>撤銷刪除: <code>git checkout -- test.txt</code></p>
-</li>
-<li><p>文件撤出暫存區: <code>git reset HEAD readme.txt</code></p>
-</li>
-<li><p>丟棄工作區修改: <code>git checkout -- readme.txt</code></p>
-</li>
-<li><p>已经提交的commit, 从一个分支放到另一个分支: <code>git cherry-pick &lt;commit id&gt;</code></p>
-</li>
-<li><p>git查看各个branch之间的关系图: <code>git log --graph --decorate --oneline --simplify-by-decoration --all</code></p>
-</li>
-<li><p>回滚单个文件到某历史提交: <code>git reset commit_id 文件路径</code></p>
-</li>
-<li><p>查看单个文件历史提交: <code>git log --pretty=oneline 文件名</code></p>
-</li>
-<li><p>查看文件两个commit的区别: <code>git diff commit_id_1 commit_id_2 -- 文件路径</code></p>
-</li>
-</ul>
-<h1 id="子模块"><a href="#子模块" class="headerlink" title="子模块"></a>子模块</h1><ul>
-<li>添加子模块: <code>git submodule add 地址 本地路径(可选)</code></li>
-<li>克隆子模块: <code>cd 模块文件夹 git submodule init git submodule update</code> </li>
-</ul>
-<p>参考:<br><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013743858312764dca7ad6d0754f76aa562e3789478044000" target="_blank" rel="noopener">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013743858312764dca7ad6d0754f76aa562e3789478044000</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/15/hello-world/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Luowei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="偷得浮生半日闲">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/15/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-15T22:17:37+08:00">
-                2018-10-15
-              </time>
+              <a href="/2018/11/04/git usage/" rel="next" title="git 命令">
+                <i class="fa fa-chevron-left"></i> git 命令
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -715,10 +400,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -726,6 +412,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -746,8 +436,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -805,6 +504,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#扩展函数-泛型使用"><span class="nav-number">1.</span> <span class="nav-text">扩展函数/泛型使用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -938,6 +653,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
