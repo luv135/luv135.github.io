@@ -6,7 +6,7 @@ tags:
 
 # 扩展函数/泛型使用
 
-···java
+```java
 fun <T : View> T.addToLayout(): T {
 			
 }
