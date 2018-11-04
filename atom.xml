@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-04T15:23:52.410Z</updated>
+  <updated>2018-11-04T15:26:00.308Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,15 +21,15 @@
     <link href="http://yoursite.com/2018/11/04/kotlin%20tips/"/>
     <id>http://yoursite.com/2018/11/04/kotlin tips/</id>
     <published>2018-11-04T15:16:33.789Z</published>
-    <updated>2018-11-04T15:23:52.410Z</updated>
+    <updated>2018-11-04T15:26:00.308Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="扩展函数-泛型使用"><a href="#扩展函数-泛型使用" class="headerlink" title="扩展函数/泛型使用"></a>扩展函数/泛型使用</h1><p>···java<br>fun <t :="" view=""> T.addToLayout(): T {</t></p><p>}<br><code>`</code></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="扩展函数-泛型使用"><a href="#扩展函数-泛型使用" class="headerlink" title="扩展函数/泛型使用"></a>扩展函数/泛型使用</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fun &lt;T : View&gt; T.addToLayout(): T &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;扩展函数-泛型使用&quot;&gt;&lt;a href=&quot;#扩展函数-泛型使用&quot; class=&quot;headerlink&quot; title=&quot;扩展函数/泛型使用&quot;&gt;&lt;/a&gt;扩展函数/泛型使用&lt;/h1&gt;&lt;p&gt;···java&lt;br&gt;fun &lt;t :=&quot;&quot; view=&quot;&quot;&gt; T.addToLay
+        &lt;h1 id=&quot;扩展函数-泛型使用&quot;&gt;&lt;a href=&quot;#扩展函数-泛型使用&quot; class=&quot;headerlink&quot; title=&quot;扩展函数/泛型使用&quot;&gt;&lt;/a&gt;扩展函数/泛型使用&lt;/h1&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
       
     
     </summary>
