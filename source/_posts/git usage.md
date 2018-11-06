@@ -7,26 +7,22 @@ tags:
 
 以下示例远程仓库的默认名称是`origin`
 
-# 仓库
+# 仓库交互
+
 - 将目录初始化为git 仓库: `git init`
-
-- 删除远程分支: `git push --delete origin 分支名`
-
-- 查看远程库信息，使用`git remote -v`
+- 关远程地仓库: `git remote add origin git@luowei.chinacloudapp.cn:/home/git/repo/sampe.git/ `
 
 - 推送分支: `git push <远程主机名> <本地分支>:<远程分支名>`
-
-- 推送本地分支: `git push origin 本地分支:远程分支`
-
-- 将`master`分支推送到远程`master`分支:`git push origin master`(对于已经关联上的分支可省略掉远程分支名)
-
-- 推送本地`dev`分支到远程`master`: `git push origin dev`
-
-- 拉取远程分支: ` git pull <远程主机名> <远程分支名>:<本地分支名>``
-
+<br/>如: `git push origin master:master`
 - 删除远程关联仓库`git remote rm origin`
+- 删除远程分支: `git push --delete origin 分支名`
+- 查看远程库信息，使用`git remote -v`
 
-- 关远程地仓库: `git remote add origin git@luowei.chinacloudapp.cn:/home/git/repo/sampe.git/ `
+- 拉取远程分支: ` git pull <远程主机名> <远程分支名>:<本地分支名>`
+
+- 拉取分支: `git fetch` 该命令将远程分支拉取到本地,但不合并
+
+- rebase 分支: `git rebase -i` 合并分支,对于历史提交的进行修改
 
 # 分支
 - 查看分支: `git branch`
@@ -36,7 +32,7 @@ tags:
 - 查看所有分支: `git branch -a`
 
 - 创建分支: `git branch <name>`
-- 本地分支和远程分支关联: `git checkout -b 本地分支 origin/远程分支`(本地和远程分支的名称最好一致)
+- 本地分支和远程分支关联: `git checkout -b 本地分支 origin/远程分支`
 
 - 建立本地分支和远程分支的关联，使用`git branch --set-upstream 本地分支 origin/远程分支`
 
@@ -49,7 +45,7 @@ tags:
 
 - 删除分支: `git branch -d <name>`
 
-- 重置分支: `git reset'
+- 重置分支: `git reset`
 
 - 强行删除: `git branch -D <name>`
 
@@ -91,4 +87,4 @@ tags:
 - 克隆子模块: `cd 模块文件夹 git submodule init git submodule update ` 
 
 参考: 
-http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013743858312764dca7ad6d0754f76aa562e3789478044000
+http://www.liaoxuefeng.com/
