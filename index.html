@@ -344,7 +344,7 @@
       
         
           
-            <h1 id="扩展函数-泛型使用"><a href="#扩展函数-泛型使用" class="headerlink" title="扩展函数/泛型使用"></a>扩展函数/泛型使用</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fun &lt;T : View&gt; T.addToLayout(): T &#123;</span><br><span class="line">			</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h1 id="扩展函数-泛型使用"><a href="#扩展函数-泛型使用" class="headerlink" title="扩展函数/泛型使用"></a>扩展函数/泛型使用</h1><p>对于TextView, Button, 调用该函数,直接返回该函数对象,不需要在转换<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fun &lt;T : View&gt; T.addToLayout(): T &#123;</span><br><span class="line">			</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -465,26 +465,21 @@
         
           
             <p>以下示例远程仓库的默认名称是<code>origin</code></p>
-<h1 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a>仓库</h1><ul>
-<li><p>将目录初始化为git 仓库: <code>git init</code></p>
+<h1 id="仓库交互"><a href="#仓库交互" class="headerlink" title="仓库交互"></a>仓库交互</h1><ul>
+<li>将目录初始化为git 仓库: <code>git init</code></li>
+<li><p>关远程地仓库: <code>git remote add origin git@luowei.chinacloudapp.cn:/home/git/repo/sampe.git/</code></p>
 </li>
-<li><p>删除远程分支: <code>git push --delete origin 分支名</code></p>
+<li><p>推送分支: <code>git push &lt;远程主机名&gt; &lt;本地分支&gt;:&lt;远程分支名&gt;</code><br><br>如: <code>git push origin master:master</code></p>
 </li>
+<li>删除远程关联仓库<code>git remote rm origin</code></li>
+<li>删除远程分支: <code>git push --delete origin 分支名</code></li>
 <li><p>查看远程库信息，使用<code>git remote -v</code></p>
 </li>
-<li><p>推送分支: <code>git push &lt;远程主机名&gt; &lt;本地分支&gt;:&lt;远程分支名&gt;</code></p>
+<li><p>拉取远程分支: <code>git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</code></p>
 </li>
-<li><p>推送本地分支: <code>git push origin 本地分支:远程分支</code></p>
+<li><p>拉取分支: <code>git fetch</code> 该命令将远程分支拉取到本地,但不合并</p>
 </li>
-<li><p>将<code>master</code>分支推送到远程<code>master</code>分支:<code>git push origin master</code>(对于已经关联上的分支可省略掉远程分支名)</p>
-</li>
-<li><p>推送本地<code>dev</code>分支到远程<code>master</code>: <code>git push origin dev</code></p>
-</li>
-<li><p>拉取远程分支: <code>git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;`</code></p>
-</li>
-<li><p>删除远程关联仓库<code>git remote rm origin</code></p>
-</li>
-<li><p>关远程地仓库: <code>git remote add origin git@luowei.chinacloudapp.cn:/home/git/repo/sampe.git/</code></p>
+<li><p>rebase 分支: <code>git rebase -i</code> 合并分支,对于历史提交的进行修改</p>
 </li>
 </ul>
 <h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><ul>
@@ -496,7 +491,7 @@
 </li>
 <li><p>创建分支: <code>git branch &lt;name&gt;</code></p>
 </li>
-<li><p>本地分支和远程分支关联: <code>git checkout -b 本地分支 origin/远程分支</code>(本地和远程分支的名称最好一致)</p>
+<li><p>本地分支和远程分支关联: <code>git checkout -b 本地分支 origin/远程分支</code></p>
 </li>
 <li><p>建立本地分支和远程分支的关联，使用<code>git branch --set-upstream 本地分支 origin/远程分支</code></p>
 </li>
@@ -510,7 +505,7 @@
 </li>
 <li><p>删除分支: <code>git branch -d &lt;name&gt;</code></p>
 </li>
-<li><p>重置分支: `git reset’</p>
+<li><p>重置分支: <code>git reset</code></p>
 </li>
 <li><p>强行删除: <code>git branch -D &lt;name&gt;</code></p>
 </li>
@@ -551,7 +546,7 @@
 <li>添加子模块: <code>git submodule add 地址 本地路径(可选)</code></li>
 <li>克隆子模块: <code>cd 模块文件夹 git submodule init git submodule update</code> </li>
 </ul>
-<p>参考:<br><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013743858312764dca7ad6d0754f76aa562e3789478044000" target="_blank" rel="noopener">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013743858312764dca7ad6d0754f76aa562e3789478044000</a></p>
+<p>参考:<br><a href="http://www.liaoxuefeng.com/" target="_blank" rel="noopener">http://www.liaoxuefeng.com/</a></p>
 
           
         
