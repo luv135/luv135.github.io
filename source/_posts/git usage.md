@@ -10,7 +10,7 @@ tags:
 # 仓库交互
 
 - 将目录初始化为git 仓库: `git init`
-- 关远程地仓库: `git remote add origin git@luowei.chinacloudapp.cn:/home/git/repo/sampe.git/ `
+- 关远程地仓库: `git remote add origin https://github.com/luv135/luv135.github.io.git`
 
 - 推送分支: `git push <远程主机名> <本地分支>:<远程分支名>`
 <br/>如: `git push origin master:master`
