@@ -81,7 +81,7 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git #部署类型，使用github
-  repository: https://github.com/luv135/luv135.github.io.git
+  repository: git@github.com:luv135/luv135.github.io.git
   branch: master #部署分支， 一般使用master主分支
 
 search:
