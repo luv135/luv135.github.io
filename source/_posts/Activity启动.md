@@ -207,7 +207,7 @@ public void handleMessage(Message msg) {
 >《深入理解Android 卷III》深入理解WindowManagerServicehttp://blog.csdn.net/innost/article/details/47660193
 Android 4.4 双显示屏支持实现思路http://blog.csdn.net/ljp1205/article/details/53540739
 Dialog创建到显示:http://blog.csdn.net/u011913612/article/details/51723510 
-Android双屏异显的实现[Android双屏异显的实现](http://blog.csdn.net/u011365633/article/details/55001840)
+AndroidActivity启动的实现[AndroidActivity启动的实现](http://blog.csdn.net/u011365633/article/details/55001840)
 
 窗口的根View`DecorView`
 输入法相关:public boolean inputMethodClientHasFocus(IInputMethodClient client);
@@ -215,9 +215,9 @@ Android双屏异显的实现[Android双屏异显的实现](http://blog.csdn.net/
 
 ## 总体流程图
 ### WindowToken和WindowState关系
-![WindowToken和WindowState关系](双屏异显/_u5FAE_u4FE1_u622A_u56FE_20170718150155.png "WindowToken和WindowState关系")
+![WindowToken和WindowState关系](Activity启动/_u5FAE_u4FE1_u622A_u56FE_20170718150155.png "WindowToken和WindowState关系")
 ### WindowState和WindowToken的从属关系
-![WindowState和WindowToken的从属关系](双屏异显/_u5FAE_u4FE1_u622A_u56FE_20170718143201.png "WindowState和WindowToken的从属关系")
+![WindowState和WindowToken的从属关系](Activity启动/_u5FAE_u4FE1_u622A_u56FE_20170718143201.png "WindowState和WindowToken的从属关系")
 
 重要成员变量
 ```
@@ -322,13 +322,13 @@ size_t len =  read(fd, events_buf, BUFF_LEN);
 `epoll_wait(...)`等待事件的到来.
 ## 总体流程图
 ### 事件上报流程
-![事件上报流程](双屏异显/112.png "事件上报流程")
+![事件上报流程](Activity启动/112.png "事件上报流程")
 ### 输入系统的总体流程与参与者
-![输入系统的总体流程与参与者](双屏异显/QQ_u622A_u56FE20170719090119.png "输入系统的总体流程与参与者")
+![输入系统的总体流程与参与者](Activity启动/QQ_u622A_u56FE20170719090119.png "输入系统的总体流程与参与者")
 ### IMS结构体系
-![IMS结构体系](双屏异显/11.png "IMS结构体系")
+![IMS结构体系](Activity启动/11.png "IMS结构体系")
 ### IMS成员关系
-![IMS成员关系](双屏异显/43.png "IMS成员关系")
+![IMS成员关系](Activity启动/43.png "IMS成员关系")
 
 ## 创建 InputManagerService
 ```
