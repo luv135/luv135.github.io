@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="android 源码,">
 
 
 
@@ -81,13 +81,25 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="偷得浮生半日闲">
-<meta property="og:url" content="https://luv135.github.io/index.html">
+<meta name="description" content="[TOC] ActivityManagerService 参考Android6.0 AMS启动Activity（四） AMS内部一些成员变量Android M应用启动流程分析http://www.jianshu.com/p/7ef2e9e80de4  Activity 启动关键流程12345678910111213141516171819202122232425262728293031323334">
+<meta name="keywords" content="android 源码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Activity启动">
+<meta property="og:url" content="https://luv135.github.io/2019/02/28/Activity启动/index.html">
 <meta property="og:site_name" content="偷得浮生半日闲">
+<meta property="og:description" content="[TOC] ActivityManagerService 参考Android6.0 AMS启动Activity（四） AMS内部一些成员变量Android M应用启动流程分析http://www.jianshu.com/p/7ef2e9e80de4  Activity 启动关键流程12345678910111213141516171819202122232425262728293031323334">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://luv135.github.io/2019/02/28/Activity启动/_u5FAE_u4FE1_u622A_u56FE_20170718150155.png">
+<meta property="og:image" content="https://luv135.github.io/2019/02/28/Activity启动/_u5FAE_u4FE1_u622A_u56FE_20170718143201.png">
+<meta property="og:image" content="https://luv135.github.io/2019/02/28/Activity启动/112.png">
+<meta property="og:image" content="https://luv135.github.io/2019/02/28/Activity启动/QQ_u622A_u56FE20170719090119.png">
+<meta property="og:image" content="https://luv135.github.io/2019/02/28/Activity启动/11.png">
+<meta property="og:image" content="https://luv135.github.io/2019/02/28/Activity启动/43.png">
+<meta property="og:updated_time" content="2019-03-02T06:57:13.471Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="偷得浮生半日闲">
+<meta name="twitter:title" content="Activity启动">
+<meta name="twitter:description" content="[TOC] ActivityManagerService 参考Android6.0 AMS启动Activity（四） AMS内部一些成员变量Android M应用启动流程分析http://www.jianshu.com/p/7ef2e9e80de4  Activity 启动关键流程12345678910111213141516171819202122232425262728293031323334">
+<meta name="twitter:image" content="https://luv135.github.io/2019/02/28/Activity启动/_u5FAE_u4FE1_u622A_u56FE_20170718150155.png">
 
 
 
@@ -117,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="https://luv135.github.io/">
+  <link rel="canonical" href="https://luv135.github.io/2019/02/28/Activity启动/">
 
 
 
 
 
-  <title>偷得浮生半日闲</title>
+  <title>Activity启动 | 偷得浮生半日闲</title>
   
 
 
@@ -142,8 +154,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -258,9 +269,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -290,9 +301,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/28/Activity启动/" itemprop="url">Activity启动</a></h1>
+          <h1 class="post-title" itemprop="name headline">Activity启动</h1>
         
 
         <div class="post-meta">
@@ -342,9 +351,7 @@
       
 
       
-        
-          
-            <p>[TOC]</p>
+        <p>[TOC]</p>
 <h1 id="ActivityManagerService"><a href="#ActivityManagerService" class="headerlink" title="ActivityManagerService"></a>ActivityManagerService</h1><blockquote>
 <p>参考<br><a href="http://blog.csdn.net/kc58236582/article/details/52484432" target="_blank" rel="noopener">Android6.0 AMS启动Activity（四） AMS内部一些成员变量</a><br>Android M应用启动流程分析<a href="http://www.jianshu.com/p/7ef2e9e80de4" target="_blank" rel="noopener">http://www.jianshu.com/p/7ef2e9e80de4</a></p>
 </blockquote>
@@ -474,8 +481,6 @@
 <p>//主显示器<br>static bool InputDispatcher::isMainDisplay(int32_t displayId)</p>
 <p>//显示器状态更新<br>class DisplayManagerHandler<br>//新增显示屏<br>private void addLogicalDisplayLocked(DisplayDevice device) {<br>    LogicalDisplay display = new LogicalDisplay(displayId, layerStack, device);<br>    display.updateLocked(mDisplayDevices);<br>    mLogicalDisplays.put(displayId, display);<br>    sendDisplayEventLocked(displayId, DisplayManagerGlobal.EVENT_DISPLAY_ADDED);<br>}<br>DisplayAdapterListener //设备新增,删除状态监听<br>DisplayDevice 代表一个物理设备<br>//配置默认显示屏参数<br>void configureDisplayInTransactionLocked(DisplayDevice device)<br>//副屏display.hasContentLocked()=true<br>if (display != null &amp;&amp; !display.hasContentLocked()) {<br>//显示屏属性设置<br>mDisplayManagerInternal.setDisplayProperties(displayId,<br>void handleNotObscuredLocked(final WindowState w,..){<br>    if (displayContent != null &amp;&amp; displayContent.isDefaultDisplay) {<br>        mInnerFields.mDisplayHasContent = true;<br>    }<br>}</p>
 
-          
-        
       
     </div>
     
@@ -490,336 +495,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://luv135.github.io/2018/11/04/kotlin tips/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Luowei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="偷得浮生半日闲">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/04/kotlin tips/" itemprop="url">Kotlin tips</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-04T23:16:33+08:00">
-                2018-11-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/android-源码/" rel="tag"># android 源码</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="扩展函数-泛型使用"><a href="#扩展函数-泛型使用" class="headerlink" title="扩展函数/泛型使用"></a>扩展函数/泛型使用</h1><p>对于TextView, Button, 调用该函数,直接返回该函数对象,不需要在转换<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fun &lt;T : View&gt; T.addToLayout(): T &#123;</span><br><span class="line">			</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://luv135.github.io/2018/11/04/git usage/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Luowei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="偷得浮生半日闲">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/04/git usage/" itemprop="url">git 命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-04T23:16:33+08:00">
-                2018-11-04
-              </time>
+              <a href="/2018/11/04/kotlin tips/" rel="next" title="Kotlin tips">
+                <i class="fa fa-chevron-left"></i> Kotlin tips
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>以下示例远程仓库的默认名称是<code>origin</code></p>
-<h1 id="仓库交互"><a href="#仓库交互" class="headerlink" title="仓库交互"></a>仓库交互</h1><ul>
-<li>将目录初始化为git 仓库: <code>git init</code></li>
-<li><p>关远程地仓库: <code>git remote add origin https://github.com/luv135/luv135.github.io.git</code></p>
-</li>
-<li><p>推送分支: <code>git push &lt;远程主机名&gt; &lt;本地分支&gt;:&lt;远程分支名&gt;</code><br><br>如: <code>git push origin master:master</code></p>
-</li>
-<li>删除远程关联仓库<code>git remote rm origin</code></li>
-<li>删除远程分支: <code>git push --delete origin 分支名</code></li>
-<li><p>查看远程库信息，使用<code>git remote -v</code></p>
-</li>
-<li><p>拉取远程分支: <code>git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</code></p>
-</li>
-<li><p>拉取分支: <code>git fetch</code> 该命令将远程分支拉取到本地,但不合并</p>
-</li>
-<li><p>rebase 分支: <code>git rebase -i</code> 合并分支,对于历史提交的进行修改</p>
-</li>
-</ul>
-<h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><ul>
-<li><p>查看分支: <code>git branch</code></p>
-</li>
-<li><p>查看远程分支: <code>git branch -r</code></p>
-</li>
-<li><p>查看所有分支: <code>git branch -a</code></p>
-</li>
-<li><p>创建分支: <code>git branch &lt;name&gt;</code></p>
-</li>
-<li><p>本地分支和远程分支关联: <code>git checkout -b 本地分支 origin/远程分支</code></p>
-</li>
-<li><p>建立本地分支和远程分支的关联，使用<code>git branch --set-upstream 本地分支 origin/远程分支</code></p>
-</li>
-</ul>
-<ul>
-<li><p>切换分支: <code>git checkout &lt;name&gt;</code></p>
-</li>
-<li><p>创建+切换分支: <code>git checkout -b &lt;name&gt;</code></p>
-</li>
-<li><p>合并某分支到当前分支: <code>git merge &lt;name&gt;</code></p>
-</li>
-<li><p>删除分支: <code>git branch -d &lt;name&gt;</code></p>
-</li>
-<li><p>重置分支: <code>git reset</code></p>
-</li>
-<li><p>强行删除: <code>git branch -D &lt;name&gt;</code></p>
-</li>
-<li><p>取回所有分支: <code>git fetch &lt;远程主机名&gt;</code></p>
-</li>
-<li><p>取回特定分支: <code>git fetch &lt;远程主机名&gt; &lt;分支名&gt;</code></p>
-</li>
-<li><p>忽略的文件: <code>.gitignore</code></p>
-</li>
-<li><p>分支合并图: <code>git log --graph</code></p>
-</li>
-<li><p>合并分支并生产一个commit: <code>git merge --no-ff -m &quot;merge with no-ff&quot; dev</code></p>
-</li>
-<li><p>重命名分支: <code>git branch -m &lt;oldname&gt; &lt;newname&gt;</code> 当前分支则:<code>git branch -m &lt;newname&gt;</code></p>
-</li>
-</ul>
-<h1 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h1><ul>
-<li><p>刪除文件: <code>git rm test.txt</code></p>
-</li>
-<li><p>撤銷刪除: <code>git checkout -- test.txt</code></p>
-</li>
-<li><p>文件撤出暫存區: <code>git reset HEAD readme.txt</code></p>
-</li>
-<li><p>丟棄工作區修改: <code>git checkout -- readme.txt</code></p>
-</li>
-<li><p>已经提交的commit, 从一个分支放到另一个分支: <code>git cherry-pick &lt;commit id&gt;</code></p>
-</li>
-<li><p>git查看各个branch之间的关系图: <code>git log --graph --decorate --oneline --simplify-by-decoration --all</code></p>
-</li>
-<li><p>回滚单个文件到某历史提交: <code>git reset commit_id 文件路径</code></p>
-</li>
-<li><p>查看单个文件历史提交: <code>git log --pretty=oneline 文件名</code></p>
-</li>
-<li><p>查看文件两个commit的区别: <code>git diff commit_id_1 commit_id_2 -- 文件路径</code></p>
-</li>
-</ul>
-<h1 id="子模块"><a href="#子模块" class="headerlink" title="子模块"></a>子模块</h1><ul>
-<li>添加子模块: <code>git submodule add 地址 本地路径(可选)</code></li>
-<li>克隆子模块: <code>cd 模块文件夹 git submodule init git submodule update</code> </li>
-</ul>
-<p>参考:<br><a href="http://www.liaoxuefeng.com/" target="_blank" rel="noopener">http://www.liaoxuefeng.com/</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -829,138 +534,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://luv135.github.io/2018/10/15/hello-world/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Luowei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="偷得浮生半日闲">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/15/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-15T22:17:37+08:00">
-                2018-10-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -968,6 +546,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -988,8 +570,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -1047,6 +638,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ActivityManagerService"><span class="nav-number">1.</span> <span class="nav-text">ActivityManagerService</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity-启动关键流程"><span class="nav-number">1.1.</span> <span class="nav-text">Activity 启动关键流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#任务栈相关类"><span class="nav-number">1.2.</span> <span class="nav-text">任务栈相关类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ActivityDisplay"><span class="nav-number">1.2.1.</span> <span class="nav-text">ActivityDisplay</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ActivityContainer"><span class="nav-number">1.2.2.</span> <span class="nav-text">ActivityContainer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ActivityStack"><span class="nav-number">1.2.3.</span> <span class="nav-text">ActivityStack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TaskRecord"><span class="nav-number">1.2.4.</span> <span class="nav-text">TaskRecord</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ActivityRecord"><span class="nav-number">1.2.5.</span> <span class="nav-text">ActivityRecord</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ActivityStackSupervisor"><span class="nav-number">1.3.</span> <span class="nav-text">ActivityStackSupervisor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用缩略图截图-Recents"><span class="nav-number">1.4.</span> <span class="nav-text">应用缩略图截图(Recents)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ActivityThread"><span class="nav-number">2.</span> <span class="nav-text">ActivityThread</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#将窗口到WMS"><span class="nav-number">2.1.</span> <span class="nav-text">将窗口到WMS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ViewRootImpl"><span class="nav-number">2.2.</span> <span class="nav-text">ViewRootImpl</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分屏模式下焦点切换"><span class="nav-number">2.3.</span> <span class="nav-text">分屏模式下焦点切换</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#WindowManagerService-窗口管理"><span class="nav-number">3.</span> <span class="nav-text">WindowManagerService 窗口管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#总体流程图"><span class="nav-number">3.1.</span> <span class="nav-text">总体流程图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#WindowToken和WindowState关系"><span class="nav-number">3.1.1.</span> <span class="nav-text">WindowToken和WindowState关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WindowState和WindowToken的从属关系"><span class="nav-number">3.1.2.</span> <span class="nav-text">WindowState和WindowToken的从属关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加窗口流程"><span class="nav-number">3.2.</span> <span class="nav-text">添加窗口流程:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他函数备忘"><span class="nav-number">3.3.</span> <span class="nav-text">其他函数备忘</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#输入系统"><span class="nav-number">4.</span> <span class="nav-text">输入系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础知识-INotify-与-Epoll"><span class="nav-number">4.1.</span> <span class="nav-text">基础知识:INotify 与 Epoll</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#INotify"><span class="nav-number">4.1.1.</span> <span class="nav-text">INotify</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Epoll-介绍和使用"><span class="nav-number">4.1.2.</span> <span class="nav-text">Epoll 介绍和使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总体流程图-1"><span class="nav-number">4.2.</span> <span class="nav-text">总体流程图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事件上报流程"><span class="nav-number">4.2.1.</span> <span class="nav-text">事件上报流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入系统的总体流程与参与者"><span class="nav-number">4.2.2.</span> <span class="nav-text">输入系统的总体流程与参与者</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IMS结构体系"><span class="nav-number">4.2.3.</span> <span class="nav-text">IMS结构体系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IMS成员关系"><span class="nav-number">4.2.4.</span> <span class="nav-text">IMS成员关系</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建-InputManagerService"><span class="nav-number">4.3.</span> <span class="nav-text">创建 InputManagerService</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#step-1-创建InputManagerService对象"><span class="nav-number">4.3.1.</span> <span class="nav-text">step 1 创建InputManagerService对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step-2-启动线程"><span class="nav-number">4.3.2.</span> <span class="nav-text">step 2 启动线程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EventHub"><span class="nav-number">4.4.</span> <span class="nav-text">EventHub</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-EventHub"><span class="nav-number">4.4.1.</span> <span class="nav-text">创建 EventHub</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EventHub-获取输入设备"><span class="nav-number">4.4.2.</span> <span class="nav-text">EventHub 获取输入设备</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#InputReader"><span class="nav-number">4.5.</span> <span class="nav-text">InputReader</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-InputReader"><span class="nav-number">4.5.1.</span> <span class="nav-text">创建 InputReader</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#InputReader-处理-EventHub-上报的设备"><span class="nav-number">4.5.2.</span> <span class="nav-text">InputReader 处理 EventHub 上报的设备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新设备配置-InputMapper"><span class="nav-number">4.5.3.</span> <span class="nav-text">新设备配置 InputMapper</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#InputReader中-mConfig-获取显示屏信息"><span class="nav-number">4.5.4.</span> <span class="nav-text">InputReader中 mConfig 获取显示屏信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Touch-触摸触屏事件处理"><span class="nav-number">4.6.</span> <span class="nav-text">Touch 触摸触屏事件处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#InputReader-事件读取以及对事件的加工"><span class="nav-number">4.6.1.</span> <span class="nav-text">InputReader 事件读取以及对事件的加工</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#InputReader-唤醒-InputDispatcher-线程"><span class="nav-number">4.6.2.</span> <span class="nav-text">InputReader 唤醒 InputDispatcher  线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#InputDispatcher-分发事件"><span class="nav-number">4.6.3.</span> <span class="nav-text">InputDispatcher 分发事件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部分函数备忘"><span class="nav-number">4.7.</span> <span class="nav-text">部分函数备忘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-层事件接收"><span class="nav-number">4.8.</span> <span class="nav-text">Java 层事件接收</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1180,6 +787,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
