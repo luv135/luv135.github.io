@@ -1,12 +1,12 @@
 ---
-title: Activity启动
-tags: 
+title: Activity启动解析
+date: 2019-03-02 15:07:47
+tags:
 - android 源码
 ---
 
 
 [TOC]
-
 
 # ActivityManagerService
 >参考
@@ -215,9 +215,9 @@ AndroidActivity启动的实现[AndroidActivity启动的实现](http://blog.csdn.
 
 ## 总体流程图
 ### WindowToken和WindowState关系
-![WindowToken和WindowState关系](Activity启动/_u5FAE_u4FE1_u622A_u56FE_20170718150155.png "WindowToken和WindowState关系")
+![WindowToken和WindowState关系](Activity启动解析/_u5FAE_u4FE1_u622A_u56FE_20170718150155.png "WindowToken和WindowState关系")
 ### WindowState和WindowToken的从属关系
-![WindowState和WindowToken的从属关系](Activity启动/_u5FAE_u4FE1_u622A_u56FE_20170718143201.png "WindowState和WindowToken的从属关系")
+![WindowState和WindowToken的从属关系](Activity启动解析/_u5FAE_u4FE1_u622A_u56FE_20170718143201.png "WindowState和WindowToken的从属关系")
 
 重要成员变量
 ```
@@ -322,13 +322,13 @@ size_t len =  read(fd, events_buf, BUFF_LEN);
 `epoll_wait(...)`等待事件的到来.
 ## 总体流程图
 ### 事件上报流程
-![事件上报流程](Activity启动/112.png "事件上报流程")
+![事件上报流程](Activity启动解析/112.png "事件上报流程")
 ### 输入系统的总体流程与参与者
-![输入系统的总体流程与参与者](Activity启动/QQ_u622A_u56FE20170719090119.png "输入系统的总体流程与参与者")
+![输入系统的总体流程与参与者](Activity启动解析/QQ_u622A_u56FE20170719090119.png "输入系统的总体流程与参与者")
 ### IMS结构体系
-![IMS结构体系](Activity启动/11.png "IMS结构体系")
+![IMS结构体系](Activity启动解析/11.png "IMS结构体系")
 ### IMS成员关系
-![IMS成员关系](Activity启动/43.png "IMS成员关系")
+![IMS成员关系](Activity启动解析/43.png "IMS成员关系")
 
 ## 创建 InputManagerService
 ```
