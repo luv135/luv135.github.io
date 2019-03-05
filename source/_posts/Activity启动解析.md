@@ -8,7 +8,10 @@ tags:
 
 [TOC]
 
+<!--more-->
+
 # ActivityManagerService
+
 >参考
 [Android6.0 AMS启动Activity（四） AMS内部一些成员变量](http://blog.csdn.net/kc58236582/article/details/52484432)
 Android M应用启动流程分析http://www.jianshu.com/p/7ef2e9e80de4
